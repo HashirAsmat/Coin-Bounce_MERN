@@ -1,0 +1,14 @@
+.table{
+    width:80%;
+    margin:20px auto;
+    border-collapse: collapse;
+}
+.head{
+    font-weight: bold;
+    font-size: 30px;
+    padding: 12px;
+}
+tbody .tableRow:hover{
+border: 1px solid orangered;
+cursor: pointer;
+}

@@ -1,0 +1,21 @@
+.textInputWrapper{
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    align-items: center;
+}
+.textInputWrapper input{
+    padding:18px 30px;
+    margin:15px;
+    outline:none;
+    width:95%;
+    border: 1px solid rgb(174, 174, 224);
+    border-radius: 10px;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+.errorMessage{
+    color: rgb(219, 6, 6);
+    text-align: left;
+    width: 95%;
+}
