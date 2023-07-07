@@ -1,0 +1,29 @@
+.signupWrapper{
+    margin:0 auto;
+    margin-top: 10px;
+    max-width:400px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height:fit-content;
+}
+.signupHeader{
+    font-size: 25px;
+    font-weight: bold;
+    width:100%;
+    text-align: center;
+}
+.signupbutton{
+    background-color: #3961fb;
+    color:white;
+    border:none;
+    width: 95%;
+    border-radius: 10px;
+    padding: 15px 30px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 20px;
+    margin:10px;
+    margin-top: 30px;
+}

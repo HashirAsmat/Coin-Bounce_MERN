@@ -1,0 +1,9 @@
+
+.marginleft-5px{
+    margin-left: 5px;
+}
+.seperator{
+    height:1px;
+    margin-top: 10px;
+    background: linear-gradient(to right, transparent,#1919ff,transparent)
+}

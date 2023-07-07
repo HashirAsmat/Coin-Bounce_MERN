@@ -4,6 +4,7 @@ const authController = require("../controller/authController");
 const auth = require('../middleware/auth');
 const blogController = require("../controller/blogController");
 const commentController = require('../controller/commentController');
+const messageController = require("../controller/messageController");
 //////////////user//////////////
 //login
 router.post("/login",authController.login);
@@ -32,6 +33,16 @@ router.delete('/blog/:id',auth,blogController.delete);
 router.post('/comment',auth,commentController.create);
 //read comment by blog id
 router.get('/comment/:id',auth,commentController.getById);
+
+///////messages routes///////////
+//create new message
+router.post('/messages/new',auth,messageController.create);
+//get all messages
+router.get('/messages/all',auth,messageController.getAll);
+
+////favoriteApi/////
+router.post('/favoriteCurrency',auth,blogController.addFavorite);
+router.post('/AllfavoriteCurrency',auth,blogController.getAllFavorite);
 module.exports = router;
 
 

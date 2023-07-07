@@ -1,0 +1,128 @@
+@media screen and (min-width: 993px) {
+.container{
+    display:flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 50px;
+}
+.blog{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 10px;
+    width:100%;
+    padding: 16px;
+    cursor:pointer;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+.blog img{
+    max-width: 90%;
+    height:300px;
+    border-radius: 10px;
+    background-size:cover;
+    margin-bottom: 10px;
+}
+.title{
+  text-align: left;
+  margin-top:15px;
+  font-weight: bold;  
+}
+.blog:hover .title{
+   color:blueviolet;
+}
+.container{
+width: 90%;
+margin:0% auto;
+margin-top: 100px;
+display: grid;
+grid-template-columns: 48% 48%;
+grid-template-rows: 450px;
+grid-column-gap: 50px;
+grid-row-gap: 100px;
+margin-bottom: 100px;
+}
+.content{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    width: 90%;
+    text-align: center;
+}
+.blog-div{
+    width:100%;
+    padding: 16px;
+    cursor:pointer;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+}
+
+@media screen and (max-width: 992px) {
+    .container{
+        display:flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+        margin-top: 50px;
+    }
+    .blog{
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        border-radius: 10px;
+        width:100%;
+        padding: 6px;
+        cursor:pointer;
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+    }
+    .blog img{
+        max-width: 90%;
+        height:250px;
+        border-radius: 10px;
+        background-size:cover;
+        margin-bottom: 10px;
+    }
+    .title{
+      text-align: left;
+      margin-top:15px;
+      font-weight: bold;  
+      color:blue;
+    }
+    .blog:hover .title{
+       color:blueviolet;
+    }
+    .container{
+    width: 90%;
+    margin:0% auto;
+    margin-top: 100px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 450px;
+    grid-row-gap: 100px;
+    margin-bottom: 100px;
+    }
+    .content{
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        width: 90%;
+        text-align: center;
+        font-size: medium;
+    }
+    .blog-div{
+        width:100%;
+        padding: 16px;
+        cursor:pointer;
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+    }
+    }

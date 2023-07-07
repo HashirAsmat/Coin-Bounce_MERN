@@ -1,0 +1,42 @@
+.Wrapper{
+    margin:0 auto;
+    width:80%;
+    max-width: 750px;
+    height:100vh; 
+     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center; 
+}
+.header{
+    font-size: 40px;
+    font-weight: bold;
+    width: inherit;
+    text-align: center;
+}
+
+.content{
+width:90%;
+height: fit-content;
+margin: 0 auto;
+}
+.content textarea{
+    width: 100%;
+    min-height: fit-content;
+    font-size: 20px;
+    border-radius:10px;
+    border: 1px solid grey;
+    padding: 10px;
+}
+.photoPrompt{
+display:flex;
+font-size: 20px;
+justify-content: center;
+gap: 50px;
+width: 60%;
+align-items: center;
+width: 100%;
+};
+
+

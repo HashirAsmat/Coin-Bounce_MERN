@@ -1,0 +1,18 @@
+.Footer {
+    height:60px;
+    min-width: 100%;
+    border:1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: medium;
+    font-weight: bold;
+    background-color:#3A414E;
+    margin-top: auto;
+}
+
+.color{
+    color:white;
+    background-color:#3A414E;
+    font-family: sans-serif;
+}

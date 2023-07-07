@@ -5,9 +5,10 @@ const Comment = require('../models/comment');
 const {BACKEND_SERVER_PATH} = require('../config/index');
 const BlogDTO = require('../dto/blog');
 const BlogDetailsDTO = require('../dto/blog-details');
-const blog = require('../models/blog');
+const FavoriteDTO = require('../dto/favorite');
 const mongodbIdPattern = /^[0-9a-fA-F]{24}$/;
-
+const FavoriteApi = require('../models/favoriteApi');
+const favoriteApi = require('../models/favoriteApi');
 const blogController = {
     async create(req,res,next){
         console.log("blog create fun")
@@ -26,7 +27,7 @@ const blogController = {
         //2. handle photostorage , naming
         //// To handle picture  time: 3:50:00
         //a. read as buffer -> through node buffer we can handle binary data stream
-        const buffer =  Buffer.from(photo.replace(/^data:image\/(png|jpg|ipeg);base64,/,''),'base64') //reading photo and replacing data URI i-e (data:image/png;base64,iVBORw0KGg...) with ->  empty string i-e '''
+        const buffer =  Buffer.from(photo.replace(/^data:image\/(png|jpg|jpeg);base64,/,''),'base64') //reading photo and replacing data URI i-e (data:image/png;base64,iVBORw0KGg...) with ->  empty string i-e '''
 
         //b. allot a random name
         const imagePath = `${Date.now()}-${author}.png`;
@@ -172,7 +173,56 @@ catch(error){
        catch(error){
         return next(error)
        }
-    }
-}
+    },
 
+    async addFavorite(req,res,next){
+        const createFavoriteSchema = Joi.object({
+            api:Joi.string().required(),
+            user:Joi.string().regex(mongodbIdPattern).required(),
+            });
+           
+            const {error} = createFavoriteSchema.validate(req.body);
+            if(error){
+                return next(error);
+            }
+            const {user,api} = req.body;
+            try{
+            const newFavortie =  new FavoriteApi({
+                user,
+                api
+            });
+            await newFavortie.save();
+            res.status(201).json({api:newFavortie});
+            }
+            catch(error){
+            return next(error)
+            }
+            },
+    
+    async getAllFavorite(req,res,next){
+        try{
+            //1.find all apis
+           console.log('request body'+req.body);
+           const {userid} = req.body;
+           const allApi = await FavoriteApi.find({user:userid});
+           console.log(allApi);
+             //when we pass an empty filter into find method , it will give all the Api data 
+            if(!allApi){
+                res.send("no Favorite Api available")
+            }
+
+            const favoriteDto = [];
+            for (let i=0;i<allApi.length;i++){ //it can also we done through .map() method.
+                const dto = new FavoriteDTO(allApi[i]);
+                favoriteDto.push(dto);
+            }
+            //3.send the resp 
+            return res.status(200).json({allApi:favoriteDto});
+        }
+        catch(error){
+            return next(error);
+        }
+    },
+    }
+    
 module.exports = blogController;
