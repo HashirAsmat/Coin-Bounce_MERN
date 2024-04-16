@@ -37,7 +37,7 @@ function Login() {
     // console.log(response.response.data.message);
     //setError(response.response.data.message);
      if ( response.code ==='ERR_BAD_REQUEST' || response.code ==='ERR_BAD_RESPONSE' ){
-setError(response.response.data.message);
+      setError(response.response.data.message);
     }
    }
     const {values,touched,handleBlur,handleChange,errors} = useFormik({

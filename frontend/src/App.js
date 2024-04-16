@@ -22,7 +22,7 @@ function App() {
       <BrowserRouter>
         <Navbar />
         <Routes>
-          <Route path='/' element={<Home/>} />
+          <Route path='/' element={<Home/>} /> 
           <Route path='crypto' element={<Protected isAuth={isAuth}><Crypto/> </Protected>} />
           <Route path='blogs' element={<Protected isAuth={isAuth}><Blog/></Protected>} />
           <Route path="blog/:id" element={<Protected isAuth={isAuth}><BlogDetails/></Protected>} />
@@ -41,3 +41,7 @@ function App() {
 }
 
 export default App;
+
+// azadchai wala MERNSTACK FRONTEND STARTS HERE: 5:11:51
+
+//when ever u first visit a website by typing its domain name , if its mern website , the browser will load the page located on the React root Route in our case its  <Route path='/' element={<Home/>} />  , remeber we have frontend routes in react and backend route in express.js , when u initially load the page , the first thing loaded is the React frontend route page ...

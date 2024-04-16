@@ -21,6 +21,7 @@ function SubmitBlog() {
             setPhoto(reader.result);
         } 
     };
+    
     //9:31:00
     const submitHandler = async ()=>{
         const data ={

@@ -9,7 +9,7 @@ function Blog() {
   const navigate = useNavigate();
     const [Blogs,setBlogs] = useState([]);
     const [loaded,setLoaded] = useState(false);
-
+       
 useEffect(()=>{   
  setLoaded(false);   
 (async function getAllBlogsApiCall(){

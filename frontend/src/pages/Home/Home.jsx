@@ -3,9 +3,11 @@ import { useState,useEffect } from 'react'
 import { getNews } from '../../api/external';
 import './Home.css';
 import { TailSpin } from 'react-loader-spinner';
+
 function Home() {
   const [articles,setArticles] = useState([]);
   const [loaded,setLoaded] = useState(false);
+
   useEffect(()=>{
     //time 8:13:00
     setLoaded(false);
@@ -28,12 +30,12 @@ function Home() {
   };
     return (
     <>
-    {loaded? <>
+    {loaded ? <>
     <div className="styles-header">
         Latest Articles
     </div>
     <div className="grid">
-        {articles.map((article)=>{
+        {articles && articles.map((article)=>{
             return(
            <div className='card' key={article.url} onClick={()=>handleCardClick(article.url)}>
             <img src={article.urlToImage} alt="" />

@@ -28,7 +28,7 @@ function Crypto() {
     }
 
     useEffect(()=>{
-        //IIFE: immediately envoke fucntion expression
+        //IEFE: immediately envoke fucntion expression
         setLoaded(false);
         (async function cryptoApiCall(){
             try{

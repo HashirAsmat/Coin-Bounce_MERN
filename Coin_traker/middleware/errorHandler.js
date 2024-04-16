@@ -27,3 +27,15 @@ return res.status(status).json(data);
 }
 
 module.exports = errorHandler;
+
+
+// In Express.js middleware functions, the standard order of arguments is (error, req, res, next):
+// error: This argument holds the error object that is passed to the middleware function when an error occurs in any previous middleware or route handler.
+// req: The request object.
+// res: The response object.
+// next: The function that triggers the next middleware or route handler.
+
+// Express recognizes that a middleware function has error handling capabilities by checking if the function has four arguments.
+// If you define a middleware function with these four arguments, Express will consider it as an error handling middleware.
+// This middleware will only be executed when an error is passed to it through the next(error) function in the previous middleware or route handler.
+// when we pass next() an argument -> and return the next(error) , the next pass that argument (error) data to the specific middleware that has 4 arguments (error, req, res, next) , and among the 4 argument the first argument is responsible to recieve the data from the next(error);

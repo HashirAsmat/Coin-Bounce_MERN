@@ -12,16 +12,17 @@ const passwordPattern = '^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]
 
 const authController = {
     async  register(req,res,next){
-    
-        //1.validate user input
+        
+        //user register schema
         const userRegisterSchema = Joi.object({
             username:Joi.string().min(4).max(30).required(),
             name:Joi.string().max(30).required(),
             email:Joi.string().email().required(),
             password: Joi.string().pattern(new RegExp(passwordPattern)).required(),
             confirmPassword: Joi.ref('password')
-    });
+    }); 
         // time:1:32:00
+        //1.validate user input
         const error = userRegisterSchema.validate(req.body).error;
         
         //2.if error in validation -> return error via middleware
@@ -35,7 +36,6 @@ const authController = {
         
         //check if email is already register
         try{
-            
             const emailInUse = await User.exists({email});
             const usernameInUse = await User.exists({username});
            
@@ -53,7 +53,7 @@ const authController = {
                 }
                 return next(error);
                 };
-            }
+            } 
             catch(error){
                 return next(error);
             }
@@ -109,6 +109,20 @@ const authController = {
 
         },
 
+        //ALWAYS WRITE SUCH ALGORITHM FOR YOURSELF IN FUNCTION.
+
+        //1 define validation schema 
+        //2 validate the body
+        //3 if validation error , return the error through middleware
+        //4 check the user name in User collection , if present return error
+        //5 check the email if same return error , then the user should enter a different email 
+        //6 if no match found then hash the password and make the new User object
+        //7 save the user in database i-e user.save
+        //8 now when we have confirm user , he will logged in right after he create an account,
+        //9 so we have to create jwt tokens for user.
+        //10 send the jwt token in cookies.
+        //11 In the last send the userDTO object as a response.
+
 
 
         async login(req,res,next){
@@ -152,7 +166,7 @@ const authController = {
            const accessToken = JWTService.signAccessToken({
                 _id:user._id,
             }, '30m');
-
+            
             const refreshToken = JWTService.signRefreshToken({
                _id:user._id, 
             },'60m');
@@ -197,7 +211,7 @@ const authController = {
             const {refreshToken} = req.cookies;
             try{     //we have created a collection for refreshToken and its model name is tokenModel ->
             await tokenModel.deleteOne({token:refreshToken})
-
+            
             //clear cookies
             res.clearCookie('accessToken');
             res.clearCookie('refreshToken');
