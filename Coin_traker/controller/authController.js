@@ -63,7 +63,7 @@ const authController = {
 
 
             //5.store user in dataBase
-
+            
             try{
                 const userToRegister = new User({
                     username,

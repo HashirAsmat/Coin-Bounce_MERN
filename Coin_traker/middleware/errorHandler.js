@@ -28,7 +28,7 @@ return res.status(status).json(data);
 
 module.exports = errorHandler;
 
-
+//error is the recieving argument i.e here at 1st argument place among 4 arguments , it recieve the data from the previous middleware.
 // In Express.js middleware functions, the standard order of arguments is (error, req, res, next):
 // error: This argument holds the error object that is passed to the middleware function when an error occurs in any previous middleware or route handler.
 // req: The request object.
