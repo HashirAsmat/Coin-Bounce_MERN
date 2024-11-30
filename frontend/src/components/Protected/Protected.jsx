@@ -9,6 +9,4 @@ else{
 }
 }
 
-
-
 export default Protected;

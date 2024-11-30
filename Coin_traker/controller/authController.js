@@ -253,7 +253,6 @@ const authController = {
                     return next(error);
                 }
 
-           
             //3. generate new tokens
                 const accessToken = JWTService.signAccessToken({_id:_id},'30m');
                 const refreshToken = JWTService.signRefreshToken({_id:_id},'60m');

@@ -29,7 +29,7 @@ function Login() {
             username:response.data.user.username,
             auth:response.data.auth
         }
-        dispatch(setUser(user));
+        dispatch(setUser(user)); 
         // 2. redirect -> homePage
         navigate('/')
     } 
